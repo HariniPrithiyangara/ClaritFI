@@ -1,5 +1,8 @@
 # 🏦 ClaritFi AI — Understand Before You Sign
 
+> 🌐 **Live Demo**: [https://clarit-fi.vercel.app](https://clarit-fi.vercel.app)  
+> ⚡ **API Service**: [https://claritfi.onrender.com](https://claritfi.onrender.com)
+
 **ClaritFi AI** is an AI-powered financial audit tool designed to protect borrowers from predatory hidden fees, confusing loan terms, and misleading interest rates.
 
 It parses loan contracts and credit agreement documents, calculates the **Real Effective APR (Annual Percentage Rate)** using exact cash-flow internal rate of return algorithms, flags high-risk clauses, verifies grounding against source text, and translates dense legalese into plain English.

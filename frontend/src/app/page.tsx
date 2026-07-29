@@ -88,6 +88,12 @@ If a payment is not received within 5 days of the due date, a Late Payment Charg
 5. FORECLOSURE & PREPAYMENT PENALTIES
 The Borrower may not repay the loan prior to 12 months. If the Borrower elects to pay off the outstanding balance early, the Lender reserves the right to charge an early foreclosure penalty equal to 4.00% of the outstanding principal balance at the time of pre-payment.`;
 
+// API Base URL resolving from Next.js (NEXT_PUBLIC_), Vite (VITE_), or Live Production Fallback
+const API_BASE_URL = 
+  process.env.NEXT_PUBLIC_API_URL || 
+  (typeof process !== "undefined" && process.env?.VITE_API_URL) || 
+  "https://claritfi.onrender.com";
+
 // Demo response matching calculations and the jargon-free UX design
 const DEMO_RESPONSE_DATA: AnalysisResult = {
   advertised_rate: 10.00,
@@ -242,7 +248,7 @@ export default function Home() {
 
   // Run the analysis
   const handleAnalyze = async () => {
-    const documentTextToUse = inputText || (selectedFile ? `[PDF File: ${selectedFile.name}]` : "");
+    const documentTextToUse = inputText || (selectedFile ? "PDF File: " + selectedFile.name : "");
     if (!inputText.trim() && !selectedFile) {
       setErrorMessage("Please paste some terms or upload a loan agreement document first.");
       return;
@@ -267,7 +273,7 @@ export default function Home() {
         formData.append("document_text", inputText);
       }
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/analyze`, {
+      const response = await fetch(`${API_BASE_URL}/analyze`, {
         method: "POST",
         body: formData,
       });
@@ -411,7 +417,7 @@ export default function Home() {
       formData.append("document_text", docText);
       formData.append("question", questionText);
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ask`, {
+      const response = await fetch(`${API_BASE_URL}/ask`, {
         method: "POST",
         body: formData
       });

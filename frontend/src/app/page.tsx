@@ -88,11 +88,8 @@ If a payment is not received within 5 days of the due date, a Late Payment Charg
 5. FORECLOSURE & PREPAYMENT PENALTIES
 The Borrower may not repay the loan prior to 12 months. If the Borrower elects to pay off the outstanding balance early, the Lender reserves the right to charge an early foreclosure penalty equal to 4.00% of the outstanding principal balance at the time of pre-payment.`;
 
-// API Base URL resolving from Next.js (NEXT_PUBLIC_), Vite (VITE_), or Live Production Fallback
-const API_BASE_URL = 
-  process.env.NEXT_PUBLIC_API_URL || 
-  (typeof process !== "undefined" && process.env?.VITE_API_URL) || 
-  "https://claritfi.onrender.com";
+// API Base URL resolving from Next.js env or Live Production Fallback
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://claritfi.onrender.com";
 
 // Demo response matching calculations and the jargon-free UX design
 const DEMO_RESPONSE_DATA: AnalysisResult = {
